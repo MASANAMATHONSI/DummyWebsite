@@ -1,0 +1,46 @@
+body
+{
+  background-color: rgb(192, 231, 229);
+}
+header
+{
+ /*  background:linear-gradient(rgba(212, 104, 239, 0.3),rgba(33, 33, 132, 0.5));*/
+   display: flex;
+   flex-direction: column;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+}
+.menu{
+  flex: 1;
+}
+nav{
+  flex: 2;
+}
+ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.5);
+  width: 110%;
+  border-radius:30px;
+}
+li{
+  list-style: none;
+  display: flex;
+  width: 80%;
+}
+a{
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  padding: 30px;
+
+}
+a:hover{
+  text-decoration: underline;
+  background: rgba(255,255,255,0.5);
+  color: black;
+  border-radius: 30px;
+}
