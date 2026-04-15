@@ -17,6 +17,8 @@ header
 }
 nav{
   flex: 2;
+  position: static;
+
 }
 ul{
   display: flex;
@@ -44,6 +46,8 @@ a:hover{
   color: black;
   border-radius: 30px;
 }
+
+
 
 .Morph-container{
   width: 100% ;
@@ -73,4 +77,34 @@ a:hover{
     clip-path: polygon(0% 0%, 100% 20%, 100% 80%, 0% 100%);
    }
    
+}
+
+.about{
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: solid rgba(255, 255, 255, 0.3) 3px;
+  backdrop-filter: blur(10px) ;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  display:right;
+  color: black;
+  font-size: larger;
+  font-family: cursive;
+  position: relative;
+ 
+}
+
+#scrollEffect{
+    animation: autoShowAnimation1 both;
+    animation-timeline: view(70% 5%);
+}
+@keyframes autoShowAnimation1 {
+    from {
+        opacity: 0;
+         transform: translateY(200px) scale(0.3);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
