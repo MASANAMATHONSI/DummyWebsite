@@ -210,7 +210,7 @@ const startButton = document.getElementById("start-btn");
 let currentQuestionIndex = 0;
 let score = 0;
 
-// Initialize Start Button
+
 startButton.addEventListener("click", () => {
   startScreen.style.display = "none";
   quizContainer.style.display = "block";
@@ -293,3 +293,168 @@ nextButton.addEventListener("click", () => {
     startQuiz();
   }
 });
+const imageQuestions = [
+  {
+    image: "image copy 2.png",
+    answers: [
+      { text: "Rose", correct: true },
+      { text: "Tulip", correct: false },
+      { text: "Daisy", correct: false },
+      { text: "Lily", correct: false }
+    ]
+  },
+  {
+    image: "sunflower.png",
+    answers: [
+      { text: "Sunflower", correct: true },
+      { text: "Marigold", correct: false },
+      { text: "Daisy", correct: false },
+      { text: "Lotus", correct: false }
+    ]
+  },
+  {
+    image: "Images/Lotus.webp",
+    answers: [
+      { text: "Lotus", correct: true },
+      { text: "Rose", correct: false },
+      { text: "Orchid", correct: false },
+      { text: "Tulip", correct: false }
+    ]
+  },
+  {
+    image: "Images/Tulips.webp",
+    answers: [
+      { text: "Tulip", correct: true },
+      { text: "Rose", correct: false },
+      { text: "Lavender", correct: false },
+      { text: "Daisy", correct: false }
+    ]
+  },
+ 
+  {
+    image: "Images/Daisy.webp",
+    answers: [
+      { text: "Daisy", correct: true },
+      { text: "Sunflower", correct: false },
+      { text: "Tulip", correct: false },
+      { text: "Peony", correct: false }
+    ]
+  },
+  {
+    image: "Images/Lily.webp",
+    answers: [
+      { text: "Lily", correct: true },
+      { text: "Rose", correct: false },
+      { text: "Lotus", correct: false },
+      { text: "Daffodil", correct: false }
+    ]
+  },
+  {
+    image: "Images/Marigold.webp",
+    answers: [
+      { text: "Marigold", correct: true },
+      { text: "Sunflower", correct: false },
+      { text: "Daisy", correct: false },
+      { text: "Tulip", correct: false }
+    ]
+  },
+  {
+    image: "Images/Jasmine.webp",
+    answers: [
+      { text: "Jasmine", correct: true },
+      { text: "Lavender", correct: false },
+      { text: "Gardenia", correct: false },
+      { text: "Rose", correct: false }
+    ]
+  }
+];
+const imageQuestionElement = document.getElementById("image-question");
+const imageAnswerButtons = document.getElementById("image-answer-buttons");
+const imageNextButton = document.getElementById("image-next-btn");
+const flowerImage = document.getElementById("flower-image");
+const imageStartScreen = document.getElementById("image-start-screen");
+const imageQuizContainer = document.getElementById("image-quiz-container");
+const imageStartBtn = document.getElementById("image-start-btn");
+
+imageStartBtn.addEventListener("click", () => {
+  imageStartScreen.style.display = "none";
+  imageQuizContainer.style.display = "block";
+  startImageQuiz();
+});
+
+let imageCurrentIndex = 0;
+let imageScore = 0;
+
+function startImageQuiz() {
+  imageCurrentIndex = 0;
+  imageScore = 0;
+  showImageQuestion();
+}
+
+function showImageQuestion() {
+  resetImageState();
+  let current = imageQuestions[imageCurrentIndex];
+
+  flowerImage.src = current.image;
+  imageQuestionElement.innerHTML = "What flower is this?";
+
+  current.answers.forEach(answer => {
+    const button = document.createElement("button");
+    button.innerHTML = answer.text;
+    button.classList.add("btn");
+
+    if (answer.correct) {
+      button.dataset.correct = true;
+    }
+
+    button.addEventListener("click", selectImageAnswer);
+    imageAnswerButtons.appendChild(button);
+  });
+}
+
+function resetImageState() {
+  imageNextButton.style.display = "none";
+  while (imageAnswerButtons.firstChild) {
+    imageAnswerButtons.removeChild(imageAnswerButtons.firstChild);
+  }
+}
+
+function selectImageAnswer(e) {
+  const selectedBtn = e.target;
+  const isCorrect = selectedBtn.dataset.correct === "true";
+
+  if (isCorrect) {
+    selectedBtn.classList.add("correct");
+    imageScore++;
+  } else {
+    selectedBtn.classList.add("incorrect");
+  }
+
+  Array.from(imageAnswerButtons.children).forEach(button => {
+    if (button.dataset.correct === "true") {
+      button.classList.add("correct");
+    }
+    button.disabled = true;
+  });
+
+  imageNextButton.style.display = "block";
+}
+
+function showImageScore() {
+  resetImageState();
+  imageQuestionElement.innerHTML = `You scored ${imageScore} out of ${imageQuestions.length}!`;
+  imageNextButton.innerHTML = "Play Again";
+  imageNextButton.style.display = "block";
+}
+
+imageNextButton.addEventListener("click", () => {
+  imageCurrentIndex++;
+  if (imageCurrentIndex < imageQuestions.length) {
+    showImageQuestion();
+  } else {
+    showImageScore();
+  }
+});
+
+// Start image quiz automatically
+startImageQuiz();
