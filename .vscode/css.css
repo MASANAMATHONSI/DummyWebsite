@@ -19,7 +19,8 @@ header
 nav{
   flex: 2;
   z-index: 3;
-
+  position: fixed;
+  top:4px
 }
 ul{
   display: flex;
@@ -369,4 +370,36 @@ padding-bottom: 30px;
 
 #image-next-btn:hover {
     background-color: #2077b2;
+}
+
+form{
+   background: rgba(0, 0, 0, 0.3);
+    background-size: cover;
+    background-position: center;
+    color: white; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  width: 90%;
+  max-width: 600px;
+  margin: 100px auto 0;
+  padding: 30px;
+  border-radius: 10px;
+  border:solid rgb(black) 1px;
+}
+
+form button{
+   background-color: rgb(0, 200, 255);
+  border-radius: 5px;
+  padding: 8px 18px;
+  font-size: 16px; 
+  border: 1px solid rgb(0, 200, 255);
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+form button:hover{
+   background-color: white;
+  cursor: pointer;
+  transform: translateY(-3px);
+
 }
