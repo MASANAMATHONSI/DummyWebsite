@@ -1,201 +1,105 @@
 const questions = [
 
   {
-
     question: "Where is the Protea flower native to?",
-
     answers: [
-
       { text: "South Africa", correct: true },
-
       { text: "Brazil", correct: false },
-
       { text: "India", correct: false },
-
       { text: "Australia", correct: false }
-
     ]
-
   },
 
-
-
   {
-
     question: "Where do Sunflowers originally come from?",
-
     answers: [
-
       { text: "North America", correct: true },
-
       { text: "South Africa", correct: false },
-
       { text: "China", correct: false },
-
       { text: "Spain", correct: false }
-
     ]
-
   },
 
-
-
   {
-
     question: "Where are Tulips originally native to?",
-
     answers: [
-
       { text: "Central Asia and Turkey", correct: true },
-
       { text: "Italy", correct: false },
-
       { text: "Canada", correct: false },
-
       { text: "Egypt", correct: false }
 
     ]
 
   },
 
-
-
   {
-
     question: "Where do Roses originally come from (most species)?",
-
     answers: [
-
       { text: "Asia", correct: true },
-
       { text: "South America", correct: false },
-
       { text: "Africa", correct: false },
-
       { text: "Australia", correct: false }
-
     ]
-
   },
 
-
-
   {
-
     question: "Where is Lavender native to?",
-
     answers: [
-
       { text: "Mediterranean region", correct: true },
-
       { text: "Russia", correct: false },
-
       { text: "Canada", correct: false },
-
       { text: "Japan", correct: false }
-
     ]
-
   },
 
-
-
   {
-
     question: "Where do Orchids grow naturally in the wild?",
-
     answers: [
-
       { text: "Worldwide (mainly tropical regions)", correct: true },
-
       { text: "Only Europe", correct: false },
-
       { text: "Only Antarctica", correct: false },
-
       { text: "Only deserts", correct: false }
-
     ]
-
   },
 
-
-
   {
-
     question: "Where are Daffodils native to?",
-
     answers: [
-
       { text: "Europe and North Africa", correct: true },
-
       { text: "South America", correct: false },
-
       { text: "India", correct: false },
-
       { text: "New Zealand", correct: false }
-
     ]
-
   },
 
-
-
   {
-
     question: "Where do Cherry Blossoms originate from?",
-
     answers: [
-
       { text: "East Asia (Japan, China, Korea)", correct: true },
-
       { text: "South Africa", correct: false },
-
       { text: "USA", correct: false },
-
       { text: "France", correct: false }
-
     ]
-
   },
 
-
-
   {
-
     question: "Where is Jasmine originally from?",
-
     answers: [
-
       { text: "Tropical and subtropical Eurasia and Australasia", correct: true },
-
       { text: "Canada", correct: false },
-
       { text: "Iceland", correct: false },
-
       { text: "Peru", correct: false }
-
     ]
-
   },
 
-
-
   {
-
     question: "Where is the Lotus flower native to?",
-
     answers: [
-
       { text: "Central and Southeast Asia", correct: true },
-
       { text: "Europe", correct: false },
-
       { text: "South America", correct: false },
-
       { text: "North Africa only", correct: false }
-
     ]
-
   }
 
 ];
@@ -260,7 +164,7 @@ function selectAnswer(e) {
     selectBtn.classList.add("incorrect");
   }
 
-  // Show correct answer and disable buttons
+ 
   Array.from(answerButtons.children).forEach(button => {
     if (button.dataset.correct === "true") {
       button.classList.add("correct");
@@ -368,6 +272,9 @@ const imageQuestions = [
     ]
   }
 ];
+
+
+
 const imageQuestionElement = document.getElementById("image-question");
 const imageAnswerButtons = document.getElementById("image-answer-buttons");
 const imageNextButton = document.getElementById("image-next-btn");
@@ -456,5 +363,6 @@ imageNextButton.addEventListener("click", () => {
   }
 });
 
-// Start image quiz automatically
+
 startImageQuiz();
+
